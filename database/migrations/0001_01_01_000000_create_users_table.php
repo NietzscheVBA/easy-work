@@ -13,12 +13,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('tenant_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignId('role_id')->nullable()->constrained()->nullOnDelete();
+
             $table->string('name');
+            $table->string('path_avatar'); // local da imagen do usuário
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('role_level')->default('user'); //super-admin, tenant-adm ou user
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
