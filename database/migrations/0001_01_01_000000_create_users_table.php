@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('role_id')->nullable()->constrained()->nullOnDelete();
 
             $table->string('name');
-            $table->string('path_avatar'); // local da imagen do usuário
+            $table->string('path_avatar')->nullable(); // local da imagen do usuário
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
