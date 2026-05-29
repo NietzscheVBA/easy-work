@@ -1,5 +1,5 @@
-<x-layouts.app>
-    <x-navigation.nav-tabs current-page="register" />
+<x-layouts.web>
+    {{-- <x-navigation.nav-tabs current-page="register" /> --}}
     
     <div id="registerPage" class="page-content transition-page">
         <div class="max-w-md mx-auto mt-6 md:mt-10">
@@ -50,4 +50,4 @@
             </div>
         </div>
     </div>
-</x-layouts.app>
+</x-layouts.web>

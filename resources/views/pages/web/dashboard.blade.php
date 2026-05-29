@@ -1,5 +1,5 @@
-<x-layouts.app>
-    <x-navigation.nav-tabs current-page="home" />
+<x-layouts.web>
+    {{-- <x-navigation.nav-tabs current-page="home" /> --}}
     
     <div id="homePage" class="page-content transition-page">
         Seja bem vindo ao Easy Obras
@@ -10,4 +10,4 @@
         // JavaScript específico do dashboard
     </script>
     @endpush
-</x-layouts.app>
+</x-layouts.web>

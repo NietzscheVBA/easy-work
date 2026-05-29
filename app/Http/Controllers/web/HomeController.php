@@ -27,7 +27,7 @@ class HomeController extends Controller
             ['author' => "Ana Oliveira", 'text' => "Quero parabenizar a equipe...", 'date' => "21 mai", 'avatar' => "A"]
         ];
 
-        return view('pages.dashboard', [
+        return view('pages.web.dashboard', [
             'totalUsers' => count($users),
             'activeUsers' => count(array_filter($users, fn($u) => $u['active'])),
             'pendingUsers' => count(array_filter($users, fn($u) => !$u['active'])),
@@ -42,7 +42,7 @@ class HomeController extends Controller
      */
     public function create()
     {
-        return view('pages.login');
+
     }
 
     /**
@@ -84,15 +84,4 @@ class HomeController extends Controller
     {
         //
     }
-
-    public function login()
-    {
-        return view('pages.login');
-    }
-
-    public function register()
-    {
-        return view('pages.register');
-    }
-
 }
