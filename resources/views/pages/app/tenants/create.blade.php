@@ -1,4 +1,4 @@
-﻿<x-layouts.app title="Novo Cadastro — Controle de Usuários">
+<x-layouts.app title="Novo Cadastro — Controle de Usuários">
 
     {{-- ── Cabeçalho da página ──────────────────────────────────── --}}
     <div class="flex items-center gap-3 mb-8">
@@ -35,7 +35,7 @@
           novalidate>
         @csrf
 
-        <div class="grid grid-cols-1 xl:grid-cols-3 gap-6 overflow-hidden">
+        <div class="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
             {{-- ── Coluna principal (2/3) ───────────────────────── --}}
             <div class="xl:col-span-2">
@@ -317,4 +317,3 @@
     </form>
 
 </x-layouts.app>
-
