@@ -4,7 +4,7 @@
 
 <div class="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden"
      x-data="messageTable(@js($messages->map(fn($m) => [
-         'name'    => $m->sender->name ?? 'Desconhecido',
+         'name'    => $m->user->name ?? 'Desconhecido',
          'preview' => $m->message,
          'date'    => $m->created_at->format('d M'),
          'unread'  => is_null($m->read_at),

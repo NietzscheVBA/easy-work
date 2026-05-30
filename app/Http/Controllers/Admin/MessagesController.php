@@ -13,7 +13,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        $messages = Message::orderBy('created_at')->get();
+        $messages = Message::with('user')->orderBy('created_at')->get();
         return view('pages.app.messages.index', compact('messages'));
     }
 

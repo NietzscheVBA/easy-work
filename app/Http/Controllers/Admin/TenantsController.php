@@ -23,7 +23,7 @@ class TenantsController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.app.tenants.create');
     }
 
     /**
