@@ -26,6 +26,18 @@
             href="{{ route('admin.messages.index') }}"
             :active="request()->routeIs('admin.messages*')"
         />
+        <x-sidebar.nav-item
+            icon="permission"
+            label="Permissões"
+            href="{{ route('admin.permission.index') }}"
+            :active="request()->routeIs('admin.permission*')"
+        />
+        <x-sidebar.nav-item
+            icon="roles"
+            label="Papéis"
+            href="{{ route('admin.role.index') }}"
+            :active="request()->routeIs('admin.role*')"
+        />
     </nav>
 
     {{-- Logout --}}

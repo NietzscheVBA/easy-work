@@ -61,14 +61,14 @@
             <p class="text-xs text-slate-400 mt-0.5" x-text="fileSize"></p>
             <button type="button"
                     @click="$refs.fileInput.click()"
-                    class="text-xs text-blue-500 hover:text-blue-700 font-medium mt-1 transition-colors">
+                    class="text-xs text-blue-500 hover:text-blue-700 font-medium mt-1 transition-colors cursor-pointer">
                 Trocar imagem
             </button>
         </div>
 
         <button type="button"
                 @click="remove()"
-                class="p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all flex-shrink-0"
+                class="p-1.5 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all flex-shrink-0 cursor-pointer"
                 title="Remover">
             <x-ui.icon name="x" class="w-4 h-4" />
         </button>

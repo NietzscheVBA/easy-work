@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Permission;
 use Illuminate\Http\Request;
 
-class TenantsController extends Controller
+class PermissionsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::orderBy('name')->get();
-
-        return view('pages.app.tenants.index', compact('users'));
+        $permissions = Permission::orderBy('name')->get();
+        // dd($permissions);
+        return view('pages.app.permissions.index', compact('permissions'));
     }
 
     /**
@@ -23,7 +23,7 @@ class TenantsController extends Controller
      */
     public function create()
     {
-        return view('pages.app.tenants.create');
+        return view('pages.app.permissions.create');
     }
 
     /**
@@ -31,7 +31,7 @@ class TenantsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        //
     }
 
     /**

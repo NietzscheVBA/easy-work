@@ -18,7 +18,7 @@
                         ? 'border-b-2 border-blue-600 text-blue-600 bg-blue-50/40'
                         : 'text-slate-500 hover:text-slate-700 hover:bg-slate-50'"
                     class="flex items-center gap-2 px-6 py-4 text-sm font-semibold
-                           transition-all duration-150 flex-1 justify-center sm:justify-start sm:flex-none">
+                           transition-all duration-150 flex-1 justify-center sm:justify-start sm:flex-none cursor-pointer">
                 @if(!empty($tab['icon']))
                     <x-ui.icon :name="$tab['icon']" class="w-4 h-4" />
                 @endif

@@ -2,7 +2,7 @@
 
     {{-- ── Cabeçalho da página ──────────────────────────────────── --}}
     <div class="flex items-center gap-3 mb-8">
-        <a href="{{ route('admin.config.index') }}"
+        <a href="{{ route('admin.tenants.index') }}"
            class="p-2 text-slate-400 hover:text-slate-700 hover:bg-white rounded-xl
                   border border-transparent hover:border-slate-200 transition-all duration-150">
             <x-ui.icon name="arrow-left" class="w-4 h-4" />
@@ -31,6 +31,7 @@
                            .replace(/\.(\d{3})(\d)/,'.$1/$2')
                            .replace(/(\d{4})(\d)/,'$1-$2')
               },
+              avatar: null
           }"
           novalidate>
         @csrf
@@ -94,6 +95,20 @@
 
                         </div>
 
+                        {{-- Logo upload --}}
+                        <div class="mt-6 pt-6 border-t border-slate-100">
+                            <x-ui.form-section
+                                title="Perfil"
+                                description="Imagem de identificação visual do administrador"
+                            />
+
+                            <x-ui.logo-upload
+                                name="avatar_logo"
+                                label="Avatar"
+                                x-on:change="avatar = $event.detail ?? null"
+                            />
+                        </div>
+
                         {{-- Segurança --}}
                         <div class="mt-6 pt-6 border-t border-slate-100">
                             <x-ui.form-section
@@ -126,7 +141,7 @@
                                     @click="tab = 'empresa'"
                                     class="inline-flex items-center gap-2 px-5 py-2.5
                                            bg-blue-50 hover:bg-blue-100 text-blue-600
-                                           text-sm font-semibold rounded-xl transition-all duration-150">
+                                           text-sm font-semibold rounded-xl transition-all duration-150 cursor-pointer">
                                 Próximo: Empresa
                                 <x-ui.icon name="arrow-right" class="w-4 h-4" />
                             </button>
@@ -150,6 +165,7 @@
                                     name="company_name"
                                     placeholder="Ex: Acme Tecnologia Ltda"
                                     icon="building"
+                                    :required="true"
                                     hint="Nome oficial registrado"
                                     x-model="companyName"
                                 />
@@ -161,6 +177,7 @@
                                 placeholder="00.000.000/0000-00"
                                 icon="hash"
                                 maxlength="18"
+                                :required="true"
                                 hint="Formatado automaticamente"
                                 x-model="cnpj"
                                 x-on:input="cnpj = formatCnpj($event.target.value)"
@@ -170,6 +187,7 @@
                                 label="Nome Fantasia"
                                 name="trade_name"
                                 placeholder="Ex: Acme Tech"
+                                :required="true"
                                 hint="Opcional"
                             />
 
@@ -188,6 +206,7 @@
                                 type="tel"
                                 placeholder="(00) 0000-0000"
                                 icon="phone"
+                                :required="true"
                                 hint="Opcional"
                             />
 
@@ -197,6 +216,7 @@
                                     name="address"
                                     placeholder="Rua, número, bairro, cidade — UF"
                                     icon="map-pin"
+                                    :required="true"
                                     hint="Opcional"
                                 />
                             </div>
@@ -239,7 +259,7 @@
                                     class="inline-flex items-center gap-2 px-5 py-2.5
                                            bg-slate-50 hover:bg-slate-100 text-slate-600
                                            text-sm font-semibold rounded-xl border border-slate-200
-                                           transition-all duration-150">
+                                           transition-all duration-150 cursor-pointer">
                                 <x-ui.icon name="arrow-left" class="w-4 h-4" />
                                 Voltar
                             </button>
@@ -269,6 +289,7 @@
                         ['label' => 'Empresa vinculada','condition' => 'companyName'],
                         ['label' => 'CNPJ informado',   'condition' => 'cnpj'],
                         ['label' => 'Logo enviada',     'condition' => 'logoPreview'],
+                        ['label' => 'Avatar',           'condition' => 'avatar'],
                     ]"
                 />
 

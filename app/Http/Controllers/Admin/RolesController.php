@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Roles\CreateRoleAction;
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Http\Request;
 
-class TenantsController extends Controller
+class RolesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $users = User::orderBy('name')->get();
-
-        return view('pages.app.tenants.index', compact('users'));
+        $roles = Role::orderBy('name')->get();
+        return view('pages.app.roles.index', compact('roles'));
     }
 
     /**
@@ -23,15 +24,18 @@ class TenantsController extends Controller
      */
     public function create()
     {
-        return view('pages.app.tenants.create');
+        $permissions = Permission::orderBy('name')->get();
+        return view('pages.app.roles.create', compact('permissions'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, CreateRoleAction $createRoleAction)
     {
-        dd($request);
+        // dd($request);
+        $role = $createRoleAction->execute($request->input());
+
     }
 
     /**

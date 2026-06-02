@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique(); // 'delete-products'
+            $table->string('name')->unique(); // 'Excluir Produto, excluir usuário'
+            $table->string('slug')->unique(); // 'delete_product, view_product
             $table->string('description'); // 'Permitir excluir produtos do estoque
             $table->timestamps();
             $table->softDeletes();
